@@ -8,6 +8,11 @@ import {
   TextStyle,
   StyleSheet,
 } from 'react-native';
+import {
+  RNPrimaryWhite,
+  RNPrimaryBlue,
+  RNPrimaryGrey,
+} from '../../config/Colors';
 
 export type RNButtonProps = {
   title?: string;
@@ -16,48 +21,65 @@ export type RNButtonProps = {
   height?: number;
   width?: number;
   onPress?: (event: GestureResponderEvent) => void;
+  onPressIn?: (event: GestureResponderEvent) => void;
+  onPressOut?: (event: GestureResponderEvent) => void;
+  onLongPress?: (event: GestureResponderEvent) => void;
   disabled?: boolean;
 };
 
 export const RNButton: React.FC<RNButtonProps> = ({
   title = '',
-  onPress,
   titleStyle,
   backgroundStyle,
   height,
   width,
+  onPress,
+  onPressIn,
+  onPressOut,
+  onLongPress,
   disabled,
 }) => {
+  const BUTTON_PADDING_HORIZONTAL = 15;
+  const BUTTON_PADDING_VERTICAL = 12;
+
   const buttonContainerStyle: StyleProp<TextStyle> = StyleSheet.flatten([
-    backgroundStyle,
     {
       height: height,
       width: width,
+      backgroundColor: RNPrimaryBlue as string,
+      paddingHorizontal: BUTTON_PADDING_HORIZONTAL,
+      paddingVertical: BUTTON_PADDING_VERTICAL,
+      justifyContent: 'center',
+      borderRadius: 10,
     },
-    {
-      backgroundColor: "blue"
-    }
+    backgroundStyle,
+    disabled
+      ? {
+          backgroundColor: RNPrimaryGrey as string,
+        }
+      : {},
   ]);
 
   const buttonTextStyle: StyleProp<TextStyle> = StyleSheet.flatten([
     {
-      color: 'white',
+      color: RNPrimaryWhite as string,
     },
-    titleStyle
+    titleStyle,
   ]);
 
-
   return (
-    <TouchableOpacity onPressIn={onPress} disabled={disabled}>
+    <TouchableOpacity
+      onPress={onPress}
+      onPressIn={onPressIn}
+      onPressOut={onPressOut}
+      onLongPress={onLongPress}
+      disabled={disabled}
+    >
       <View style={buttonContainerStyle}>
         <Text style={buttonTextStyle}>{title}</Text>
       </View>
     </TouchableOpacity>
   );
 };
-
-// const styles = StyleSheet.create({
-
-// });
 
 RNButton.displayName = 'RNButton';

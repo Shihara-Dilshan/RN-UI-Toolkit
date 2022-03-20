@@ -1,12 +1,18 @@
 import * as React from 'react';
 
-import { StyleSheet, View } from 'react-native';
+import { Alert, StyleSheet, View } from 'react-native';
 import { RNButton } from 'rn-ui-toolkit';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <RNButton />
+      <RNButton
+        title="Press Me"
+        backgroundStyle={{backgroundColor :"red"}}
+        onPress={() => {
+          Alert.alert('fddf');
+        }}
+      />
     </View>
   );
 }

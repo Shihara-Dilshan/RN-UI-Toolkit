@@ -36,13 +36,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/Shihara-Dilshan/rn-ui-toolkit",
+  "repository": "https://github.com/Shihara-Dilshan/RN-UI-Toolkit",
   "author": "Shihara Dilshan <shiharadotadilshanid@gmail.com> (https://github.com/Shihara-Dilshan)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Shihara-Dilshan/rn-ui-toolkit/issues"
+    "url": "https://github.com/Shihara-Dilshan/RN-UI-Toolkit/issues"
   },
-  "homepage": "https://github.com/Shihara-Dilshan/rn-ui-toolkit#readme",
+  "homepage": "https://github.com/Shihara-Dilshan/RN-UI-Toolkit#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
